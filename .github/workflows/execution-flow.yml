@@ -56,6 +56,8 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Check Output
+        run: echo ${{ steps.cache.output.cache-hit }}
       - name: Build website
         id: build-website
         run: npm run build
